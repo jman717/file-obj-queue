@@ -2,7 +2,7 @@
   "author": {
     "name": "Jim Manton"
   },
-  "version": "1.0.3",
+  "version": "1.0.4",
   "bundleDependencies": [],
   "dependencies": {
     "chai": "^4.3.7",
