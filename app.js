@@ -34,7 +34,7 @@ class file_obj {
             check_file = t.absolute_path.split(last_item)[0], check_path = t.path.split('/')
 
         check_file = check_file.replace(/\\/g, "/");
-        path_to_check = validPath(check_path);
+        path_to_check = validPath(t.path);
 
         if (!path_to_check.valid) {
             t.errors = true
