@@ -5,7 +5,8 @@
 
 var colors = require('colors'),
     queue = require("queuejson"),
-    fs = require('fs');
+    fs = require('fs'),
+    validPath = require('valid-path')
 
 class file_obj {
     constructor(props) {
@@ -28,11 +29,18 @@ class file_obj {
     }
 
     do_checks() {
-        let t = this,
+        let t = this, path_to_check,
             last_item = t.absolute_path.split("\\").pop(),
             check_file = t.absolute_path.split(last_item)[0], check_path = t.path.split('/')
 
         check_file = check_file.replace(/\\/g, "/");
+        path_to_check = validPath(check_path);
+
+        if (!path_to_check.valid) {
+            t.errors = true
+            t.error_msg = `id = ${t.id} name(${t.name}) Error in ${path_to_check.data.input}: ${path_to_check.error})`
+        }
+
         check_path.map((dat, i) => {
             if (/^[a-zA-Z._]+$/.test(dat)) {
                 if (dat != '.')
@@ -64,9 +72,6 @@ exports = module.exports = class FilesQueue {
     constructor() {
         try {
             var t = this
-            // t.id = 0
-            // t.appenders_dir = './lib/appenders/'
-            // t.props = {}
             t.logMsg = t.logMsg.bind(t)
             t.init = t.init.bind(t)
             t.getFileObject = t.getFileObject.bind(t)

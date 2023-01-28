@@ -23,7 +23,6 @@ describe('app', function () {
 
 describe('require', function () {
 
-
     it('colors app', function () {
         assert(require('colors'))
     })
@@ -34,5 +33,9 @@ describe('require', function () {
 
     it('fs', function () {
         assert(require('fs'))
+    })
+    
+    it('valid-path', function () {
+        assert(require('valid-path'))
     })
 })
