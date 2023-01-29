@@ -3,7 +3,7 @@
 * Main processing app
 */
 
-var colors = require('colors'),
+var colors = require('node-console-colors'),
     queue = require("queuejson"),
     fs = require('fs'),
     validPath = require('valid-path')
