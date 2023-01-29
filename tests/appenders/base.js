@@ -4,7 +4,7 @@
 * lib/appenders/base.js
 */
 
-var colors = require('colors')
+var colors = require('node-console-colors')
 
 class process_all_obj {
     constructor(props) {

@@ -23,8 +23,8 @@ describe('app', function () {
 
 describe('require', function () {
 
-    it('colors app', function () {
-        assert(require('colors'))
+    it('node-console-colors', function () {
+        assert(require('node-console-colors'))
     })
 
     it('queuejson', function () {

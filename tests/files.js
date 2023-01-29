@@ -1,4 +1,4 @@
-var colors = require('colors'),
+var colors = require('node-console-colors'),
     file_queue = require("../app.js")
 
 var file_data = [
