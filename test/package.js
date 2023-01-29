@@ -14,7 +14,7 @@ const packageMock = {
     "fs": "^0.0.1-security",
     "mocha": "^10.2.0",
     "node-console-colors": "^1.1.4",
-    "queuejson": "^8.3.1",
+    "queuejson": "^9.0.2",
     "valid-path": "^2.1.0"
   },
   "scripts": {
