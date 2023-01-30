@@ -26,6 +26,9 @@ class file_obj {
         if (props.check) {
             t.do_checks()
         }
+        t.logMsg(`file-obj-queue.constructor`)
+
+        return t
     }
 
     do_checks() {
@@ -87,13 +90,28 @@ exports = module.exports = class FilesQueue {
         try {
             if (typeof props.input_data == 'undefined')
                 throw new Error('props.input_data is not defined')
-            t.qJson = new queue({
-                class_obj: file_obj,
-                appender: 'all',
-                stats: true,
-                debug: true
-            })
-            t.qJson.init({ input_data: props.input_data }).process()
+            try {
+                t.logMsg(`jrm debug 1/29 1000`)
+                t.qJson = new queue({
+                    class_obj: file_obj,
+                    appender: 'all',
+                    stats: true,
+                    debug: true
+                })
+                t.logMsg(`jrm debug 1/29 1001`)
+            } catch (e) {
+                e.message = "queuejson error: " + e.message
+                t.logMsg(e.message)
+                throw (e)
+            }
+            try {
+                t.qJson.init({ input_data: props.input_data })
+            } catch (e) {
+                e.message = "queuejson.init error: " + e.message
+                t.logMsg(e.message)
+                throw (e)
+            }
+            t.qJson.process()
             return t
         } catch (e) {
             e.message = "FilesQueue app.js init error: " + e.message
