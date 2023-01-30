@@ -12,7 +12,9 @@ var file_data = [
     { props: { id: 107, name: "version", path: "./appenders/version.js", absolute_path: __filename, check: true } }
 ]
 
+console.log(`jrm debug 1/29 2200`)
 var qRequire = new file_queue().init({ input_data: file_data })  
+console.log(`jrm debug 1/29 2201`)
 
 console.log(`test complete`.blue)
 

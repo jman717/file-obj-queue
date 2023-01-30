@@ -3,8 +3,8 @@
 * Main processing app
 */
 
-var colors = require('node-console-colors'),
-    queue = require("queuejson"),
+let colors = require('node-console-colors'),
+    json_queue = require("queuejson"),
     fs = require('fs'),
     validPath = require('valid-path')
 
@@ -26,7 +26,6 @@ class file_obj {
         if (props.check) {
             t.do_checks()
         }
-        t.logMsg(`file-obj-queue.constructor`)
 
         return t
     }
@@ -78,6 +77,9 @@ exports = module.exports = class FilesQueue {
             t.logMsg = t.logMsg.bind(t)
             t.init = t.init.bind(t)
             t.getFileObject = t.getFileObject.bind(t)
+
+            t.logMsg(`FilesQueue.constructor`)
+
             return t
         } catch (e) {
             e.message = "FilesQueue app.js constructor error: " + e.message
@@ -92,7 +94,7 @@ exports = module.exports = class FilesQueue {
                 throw new Error('props.input_data is not defined')
             try {
                 t.logMsg(`jrm debug 1/29 1000`)
-                t.qJson = new queue({
+                t.qJson = new json_queue({
                     class_obj: file_obj,
                     appender: 'all',
                     stats: true,
@@ -106,12 +108,12 @@ exports = module.exports = class FilesQueue {
             }
             try {
                 t.qJson.init({ input_data: props.input_data })
+                t.qJson.process()
             } catch (e) {
                 e.message = "queuejson.init error: " + e.message
                 t.logMsg(e.message)
                 throw (e)
             }
-            t.qJson.process()
             return t
         } catch (e) {
             e.message = "FilesQueue app.js init error: " + e.message

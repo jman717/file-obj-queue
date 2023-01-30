@@ -6,7 +6,7 @@ const packageMock = {
   "author": {
     "name": "Jim Manton"
   },
-  "version": "1.0.19",
+  "version": "1.0.20",
   "bundleDependencies": [],
   "dependencies": {
     "chai": "^4.3.7",
@@ -14,7 +14,7 @@ const packageMock = {
     "fs": "^0.0.1-security",
     "mocha": "^10.2.0",
     "node-console-colors": "^1.1.4",
-    "queuejson": "^9.0.4",
+    "queuejson": "^9.0.8",
     "valid-path": "^2.1.0"
   },
   "scripts": {
