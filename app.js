@@ -76,7 +76,7 @@ exports = module.exports = class FilesQueue {
             t.logMsg = t.logMsg.bind(t)
             t.init = t.init.bind(t)
             t.getFileObject = t.getFileObject.bind(t)
-            t.json_queue = require("queuejson")
+            t.json_queue = require("./local_queuejson/app")
             t.qJson = null
 
             t.logMsg(`FilesQueue.constructor`)
@@ -101,7 +101,7 @@ exports = module.exports = class FilesQueue {
                         appender: 'all',
                         stats: true,
                         debug: true,
-                        file_obj_queue: t.getFileObj   //jrm debug 1/31
+                        parent: t
                     })
                     t.logMsg(`jrm debug 1/29 8801`)
                 } catch (e) {
@@ -125,10 +125,6 @@ exports = module.exports = class FilesQueue {
             t.logMsg(e.message)
             throw (e)
         }
-    }
-
-    getFileObj(){
-        return this
     }
 
     getFileObject() {
