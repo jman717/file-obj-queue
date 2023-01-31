@@ -100,7 +100,8 @@ exports = module.exports = class FilesQueue {
                         class_obj: file_obj,
                         appender: 'all',
                         stats: true,
-                        debug: true
+                        debug: true,
+                        file_obj_queue: t.getFileObj   //jrm debug 1/31
                     })
                     t.logMsg(`jrm debug 1/29 8801`)
                 } catch (e) {
@@ -124,6 +125,10 @@ exports = module.exports = class FilesQueue {
             t.logMsg(e.message)
             throw (e)
         }
+    }
+
+    getFileObj(){
+        return this
     }
 
     getFileObject() {
