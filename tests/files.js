@@ -16,5 +16,5 @@ console.log(`jrm debug 1/29 2200`)
 var qRequire = new file_queue().init({ input_data: file_data })  
 console.log(`jrm debug 1/29 2201`)
 
-console.log(`test complete`.blue)
+console.log(`test complete`)
 

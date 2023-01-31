@@ -77,6 +77,7 @@ exports = module.exports = class FilesQueue {
             t.init = t.init.bind(t)
             t.getFileObject = t.getFileObject.bind(t)
             t.json_queue = require("queuejson")
+            t.qJson = null
 
             t.logMsg(`FilesQueue.constructor`)
 
@@ -90,29 +91,32 @@ exports = module.exports = class FilesQueue {
     init(props = {}) {
         let t = this
         try {
-            if (typeof props.input_data == 'undefined')
-                throw new Error('props.input_data is not defined')
-            try {
-                t.logMsg(`jrm debug 1/29 8800`)
-                t.qJson = new t.json_queue({
-                    class_obj: file_obj,
-                    appender: 'all',
-                    stats: true,
-                    debug: true
-                })
-                t.logMsg(`jrm debug 1/29 8801`)
-            } catch (e) {
-                e.message = "queuejson error: " + e.message
-                t.logMsg(e.message)
-                throw (e)
-            }
-            try {
-                t.qJson.init({ input_data: props.input_data })
-                t.qJson.process()
-            } catch (e) {
-                e.message = "queuejson.init error: " + e.message
-                t.logMsg(e.message)
-                throw (e)
+            if (t.qJson == null) {
+                if (typeof props.input_data == 'undefined')
+                    throw new Error('props.input_data is not defined')
+                try {
+                    t.logMsg(`jrm debug 1/29 8800`)
+                    t.qJson = new t.json_queue({
+                        class_obj: file_obj,
+                        appender: 'all',
+                        stats: true,
+                        debug: true
+                    })
+                    t.logMsg(`jrm debug 1/29 8801`)
+                } catch (e) {
+                    e.message = "queuejson error: " + e.message
+                    t.logMsg(e.message)
+                    throw (e)
+                }
+                try {
+                    t.qJson.init({ input_data: props.input_data })
+                    t.qJson.process()
+                } catch (e) {
+                    e.message = "queuejson.init error: " + e.message
+                    t.logMsg(e.message)
+                    throw (e)
+                }
+
             }
             return t
         } catch (e) {
