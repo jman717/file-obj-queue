@@ -4,7 +4,6 @@
 */
 
 let colors = require('node-console-colors'),
-    json_queue = require("queuejson"),
     fs = require('fs'),
     validPath = require('valid-path')
 
@@ -77,6 +76,7 @@ exports = module.exports = class FilesQueue {
             t.logMsg = t.logMsg.bind(t)
             t.init = t.init.bind(t)
             t.getFileObject = t.getFileObject.bind(t)
+            t.json_queue = require("queuejson")
 
             t.logMsg(`FilesQueue.constructor`)
 
@@ -93,14 +93,14 @@ exports = module.exports = class FilesQueue {
             if (typeof props.input_data == 'undefined')
                 throw new Error('props.input_data is not defined')
             try {
-                t.logMsg(`jrm debug 1/29 1000`)
-                t.qJson = new json_queue({
+                t.logMsg(`jrm debug 1/29 8800`)
+                t.qJson = new t.json_queue({
                     class_obj: file_obj,
                     appender: 'all',
                     stats: true,
                     debug: true
                 })
-                t.logMsg(`jrm debug 1/29 1001`)
+                t.logMsg(`jrm debug 1/29 8801`)
             } catch (e) {
                 e.message = "queuejson error: " + e.message
                 t.logMsg(e.message)
