@@ -6,15 +6,17 @@ const packageMock = {
   "author": {
     "name": "Jim Manton"
   },
-  "version": "2.0.1",
+  "version": "2.0.2",
   "bundleDependencies": [],
   "dependencies": {
+    "@types/node": "^18.11.19",
     "chai": "^4.3.7",
     "colors": "^1.4.0",
     "diffler": "^2.0.4",
     "fs": "^0.0.1-security",
     "mocha": "^10.2.0",
     "queuejson": "^9.0.11",
+    "typescript": "^4.9.5",
     "valid-path": "^2.1.0"
   },
   "scripts": {
