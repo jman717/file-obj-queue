@@ -4,9 +4,9 @@
 * lib/appenders/base.js
 */
 
-var colors = require('node-console-colors')
+var colors = require('colors')
 
-class process_all_obj {
+class process_object {
     constructor(props) {
         let t = this
         t.parent = props.parent
@@ -82,7 +82,7 @@ class process_all_obj {
                 throw e
             }
         } catch (e) {
-            e.message = `process_all_obj error: ${e.message} `
+            e.message = `process_object error: ${e.message} `
             throw e
         }
     }
@@ -113,7 +113,7 @@ exports = module.exports = class base {
         t.getParent = props.getParent
         t.dt_start = null
         t.dt_end = null
-        t.process_all_obj = null
+        t.process_object = null
         t.pro_props = []
 
         t.process = t.process.bind(this)
@@ -155,15 +155,15 @@ exports = module.exports = class base {
 
     process_all = () => {
         let t = this, _continue
-        if (t.process_all_obj == null) {
-            t.process_all_obj = new process_all_obj({ parent: t })
+        if (t.process_object == null) {
+            t.process_object = new process_object({ parent: t })
         }
 
         _continue = false
         try {
-            switch (t.process_all_obj.getStatus()) {
+            switch (t.process_object.getStatus()) {
                 case 'process':
-                    t.process_all_obj.process()
+                    t.process_object.process()
                     _continue = true
                     break
                 case 'finish with errors':
@@ -175,7 +175,7 @@ exports = module.exports = class base {
                 case 'wait':
                     return
                 default:
-                    throw new Error(`status(${t.process_all_obj.getStatus()}) does not exist`)
+                    throw new Error(`status(${t.process_object.getStatus()}) does not exist`)
             }
 
             if (_continue)
