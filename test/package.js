@@ -6,7 +6,7 @@ const packageMock = {
   "author": {
     "name": "Jim Manton"
   },
-  "version": "2.0.6",
+  "version": "2.0.7",
   "bundleDependencies": [],
   "dependencies": {
     "@types/node": "^18.19.127",
@@ -48,6 +48,7 @@ const packageMock = {
   "name": "file-obj-queue",
   "start": "node app.js"
 }
+
 
 describe('package.json', function () {
     it('should pass', function () {
