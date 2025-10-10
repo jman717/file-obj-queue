@@ -6,7 +6,7 @@ const packageMock = {
   "author": {
     "name": "Jim Manton"
   },
-  "version": "3.0.10",
+  "version": "3.0.11",
   "bundleDependencies": [],
   "dependencies": {
     "@types/node": "^24.7.1",
@@ -16,7 +16,7 @@ const packageMock = {
     "fs": "^0.0.1-security",
     "mocha": "^10.8.2",
     "queuejson": "^10.0.0",
-    "typescript": "^2.7.0",
+    "typescript": "^5.9.3",
     "valid-path": "^2.1.0"
   },
   "scripts": {
@@ -48,6 +48,7 @@ const packageMock = {
   "name": "file-obj-queue",
   "start": "node app.js"
 }
+
 describe('package.json', function () {
     it('should pass', function () {
       const difference = jsonHasDifferences(packagejson, packageMock)
