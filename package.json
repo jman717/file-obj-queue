@@ -2,10 +2,10 @@
   "author": {
     "name": "Jim Manton"
   },
-  "version": "3.0.9",
+  "version": "3.0.10",
   "bundleDependencies": [],
   "dependencies": {
-    "@types/node": "^18.19.127",
+    "@types/node": "^24.7.1",
     "chai": "^4.5.0",
     "colors": "^1.4.0",
     "diffler": "^2.0.4",
