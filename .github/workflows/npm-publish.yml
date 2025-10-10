@@ -68,8 +68,8 @@ jobs:
       run: npm ls --depth=0 --dev && npm ls --depth=0 --prod
 
     - run: npm run build --if-present
-    - run: npm run basic
-    - run: npm run functions
+    - run: npm test
+    - run: npm run test_files
     #- run: npm publish 
     #  env:
     #      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} 
