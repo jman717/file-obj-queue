@@ -6,7 +6,7 @@ const packageMock = {
   "author": {
     "name": "Jim Manton"
   },
-  "version": "3.0.8",
+  "version": "3.0.9",
   "bundleDependencies": [],
   "dependencies": {
     "@types/node": "^18.19.127",
@@ -16,7 +16,7 @@ const packageMock = {
     "fs": "^0.0.1-security",
     "mocha": "^10.8.2",
     "queuejson": "^10.0.0",
-    "typescript": "^4.9.5",
+    "typescript": "^2.7.0",
     "valid-path": "^2.1.0"
   },
   "scripts": {
