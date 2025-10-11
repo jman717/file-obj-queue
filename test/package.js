@@ -6,11 +6,8 @@ const packageMock = {
   "author": {
     "name": "Jim Manton"
   },
-  "version": "3.0.30",
+  "version": "3.0.31",
   "bundleDependencies": [],
-  "publishConfig": {
-    "@products:registry": "https://github.com/jman717/file-obj-queue.git/api/v4/projects/100/packages/npm/"
-  },
   "dependencies": {
     "@types/node": "^24.7.1",
     "chai": "^6.2.0",
@@ -52,6 +49,7 @@ const packageMock = {
   "name": "file-obj-queue",
   "start": "node app.js"
 }
+
 
 describe('package.json', function () {
     it('should pass', function () {
