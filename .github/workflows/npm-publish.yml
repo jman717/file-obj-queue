@@ -6,6 +6,13 @@ on:
       - Node.js CI
     types:
       - completed
+  workflow_call:
+    inputs:
+      username:
+        description: 'A username passed from the caller workflow'
+        default: 'popolana'
+        required: false
+        type: string
 
 jobs:
   build:
