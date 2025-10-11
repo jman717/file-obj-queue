@@ -30,7 +30,7 @@ jobs:
           
       - run: npm ci
       - run: npm test
-      - run: npm run basic
+      - run: npm run test_files
     # Publish to npm (append `--access public` for scoped packages)
 
       - run: npm publish --access public
