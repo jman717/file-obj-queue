@@ -6,7 +6,7 @@ const packageMock = {
   "author": {
     "name": "Jim Manton"
   },
-  "version": "3.0.25",
+  "version": "3.0.26",
   "bundleDependencies": [],
   "publishConfig": {
     "@products:registry": "https://github.com/jman717/file-obj-queue.git/api/v4/projects/100/packages/npm/"
