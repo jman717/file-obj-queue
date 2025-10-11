@@ -1,0 +1,23 @@
+name: Variables
+run-name: ${{ github.actor }} is testing out NPM Variables 🚀
+
+on: [push] 
+ job:
+  variables:
+    JOB_DEFINED_VARIABLE: "job variable"
+before_script:
+        - echo "This is the 'before_script' script"
+        - export MY_VARIABLE="variable"
+script:  
+        - echo "This is the 'script' script"
+        - echo "JOB_DEFINED_VARIABLE's value is ${JOB_DEFINED_VARIABLE}"
+        - echo "CI_COMMIT_SHA's value is ${CI_COMMIT_SHA}"
+        - echo "MY_VARIABLE's value is ${MY_VARIABLE}"
+after_script:
+      - echo "JOB_DEFINED_VARIABLE's value is ${JOB_DEFINED_VARIABLE}"
+        - echo "CI_COMMIT_SHA's value is ${CI_COMMIT_SHA}"
+        - echo "MY_VARIABLE's value is ${MY_VARIABLE}"
+
+  #          before_script:
+  #      - echo "@products:registry=http://${CI_SERVER_HOST}:${CI_SERVER_PORT}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/">.npmrc
+  #      - echo "//${CI_SERVER_HOST}:${CI_SERVER_PORT}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}">>.npmrc

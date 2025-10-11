@@ -1,6 +1,6 @@
 name: Publish Package To NPM
 
-on:
+on:  
   workflow_run:
     workflows:
       - Node.js CI
@@ -32,7 +32,6 @@ jobs:
       - run: npm test
       - run: npm run test_files
     # Publish to npm (append `--access public` for scoped packages)
-
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
