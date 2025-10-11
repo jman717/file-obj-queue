@@ -2,7 +2,7 @@
   "author": {
     "name": "Jim Manton"
   },
-  "version": "3.0.29",
+  "version": "3.0.30",
   "bundleDependencies": [],
   "dependencies": {
     "@types/node": "^24.7.1",
