@@ -43,7 +43,7 @@ jobs:
     #      name: banana
     #      path: ./build/
 
-      - name: Publish NPM package
-        run: npm publish
-        env:
-          NPM_CONFIG_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #  - name: Publish NPM package
+    #    run: npm publish
+    #    env:
+    #      NPM_CONFIG_TOKEN: ${{ secrets.GITHUB_TOKEN }}
