@@ -26,8 +26,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           registry-url: 'https://registry.npmjs.org/'
-#          node-version-file: '.nvmrc'
-#          cache: 'npm'
+          node-version-file: '.nvmrc'
+          cache: 'npm'
 
       - name: Install npm packages
         run: npm install
