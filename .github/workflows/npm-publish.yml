@@ -6,40 +6,38 @@ on:
       - Node.js CI
     types:
       - completed
-  workflow_call:
-    inputs:
-      username:
-        description: 'A username passed from the caller workflow'
-        default: 'popolana'
-        required: false
-        type: string
 
 jobs:
-  build:
+  CI:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm ci
-      - run: npm test
 
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: set node-version
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
-          registry-url: https://registry.npmjs.org/
-          
-      - run: npm ci
-      - run: npm test
-      - run: npm run test_files
-      - run: echo The username is ${{ inputs.username }}
-    # Publish to npm (append `--access public` for scoped packages)
-      - run: npm publish --access public
+          registry-url: 'https://registry.npmjs.org/'
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Install npm packages
+        run: npm install
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Build Banana
+        run: npm run banana -- --build --env prod
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: banana
+          path: ./build/
+
+      - name: Publish NPM package
+        run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_TOKEN: ${{ secrets.GITHUB_TOKEN }}
