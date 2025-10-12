@@ -6,7 +6,7 @@ const packageMock = {
   "author": {
     "name": "Jim Manton"
   },
-  "version": "3.0.40",
+  "version": "3.0.41",
   "bundleDependencies": [],
   "dependencies": {
     "@types/node": "^24.7.1",
@@ -20,8 +20,8 @@ const packageMock = {
     "typescript": "^5.9.3",
     "valid-path": "^2.1.0"
   },
-    "engines": {
-    "node": "22.20.0"
+  "engines": {
+    "node": "18"
   },
   "scripts": {
     "start": "node app.ts",
