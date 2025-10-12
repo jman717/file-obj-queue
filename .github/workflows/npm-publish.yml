@@ -35,8 +35,8 @@ jobs:
       - name: Unit tests
         run: npm test
 
-      - name: Build Banana
-        run: npm run banana -- --build --env prod
+    #  - name: Build Banana
+    #    run: npm run banana -- --build --env prod
 
     #  - uses: actions/upload-artifact@v4
     #    with:
