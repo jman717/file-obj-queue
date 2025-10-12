@@ -24,8 +24,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-#        with:
-#          registry-url: 'https://registry.npmjs.org/'
+        with:
+          registry-url: 'https://registry.npmjs.org/'
 #          node-version-file: '.nvmrc'
 #          cache: 'npm'
 
@@ -35,15 +35,7 @@ jobs:
       - name: Unit tests
         run: npm test
 
-    #  - name: Build Banana
-    #    run: npm run banana -- --build --env prod
-
-    #  - uses: actions/upload-artifact@v4
-    #    with:
-    #      name: banana
-    #      path: ./build/
-
-    #  - name: Publish NPM package
-    #    run: npm publish
-    #    env:
-    #      NPM_CONFIG_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish NPM package
+        run: npm publish
+        env:
+          NPM_CONFIG_TOKEN: ${{ secrets.GITHUB_TOKEN }}
