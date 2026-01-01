@@ -16,6 +16,8 @@ jobs:
         with:
           node-version: 20
       - run:  |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
           git checkout $CI_COMMIT_REF_NAME
           npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
           npm config set scope "@tenado"
