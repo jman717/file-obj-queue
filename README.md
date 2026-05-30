@@ -7,12 +7,6 @@
 
 An array of objects containing file path information. One use is for dynamically import require modules.
 
-Mocha Test
----------
-```
-npm test
-```
-
 General Setup Test
 ---------
 ```
